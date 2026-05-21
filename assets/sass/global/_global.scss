@@ -1,0 +1,151 @@
+@use "./variables" as *;
+@use "../components/btns";
+
+html , body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: $darkColor;
+    color: rgba($white , 0.9);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+ul , li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button {
+    all: unset;
+}
+
+img {
+    max-width: 100%;
+}
+
+.colorWhite {
+    color: white;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: $white;
+}
+
+.section-title {
+    .title {
+        position: relative;
+        padding-left: 24px;
+        &::before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            width: 6px;
+            background-color: $lightBlue;
+            top: 0;
+            left: 0;
+        }
+    }
+    .subTitle {
+        padding-left: 24px;
+    }
+}
+
+.blogMain {
+    padding-top: 8rem;
+}
+
+.rotate180 {
+    rotate: 180deg;
+}
+
+.gradLine {
+    margin: 3rem auto;
+    height: 10px;
+    background: linear-gradient(to right , transparent , rgba($mediumBlue , 0.48) , transparent);
+    filter: blur(3px);
+    max-width: 600px;
+    box-shadow: 0 4px 86px -1px rgba($mediumBlue , 0.8);
+    &.noBlur {
+        background: linear-gradient(to right , transparent , rgba($lightBlue , 0.48) , transparent);
+        height: 2px;
+        filter: blur(0);
+        box-shadow: 0 4px 86px 5px rgba($lightBlue , 0.83);
+    }
+}
+
+.tabs {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #4F5D75;
+    }
+    .tab {
+        padding: 10px 24px;
+        border-radius: 10px 10px 0 0;
+        color: #4F5D75;
+        border-bottom: 2px solid transparent;
+        position: relative;
+        z-index: 2;
+        &.active {
+            background-color: rgba($lightBlue , 0.1);
+            border-bottom-color: $lightBlue;
+            color: $lightBlue;
+        }
+    }
+}
+
+.owl-carousel {
+    .owl-item {
+        img {
+            width: auto;
+        }
+    }
+    .owl-nav {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        gap: 10px;
+        button {
+            width: 44px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: rgba($lightBlue , 0.5) !important;
+            border: 1px solid $white !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.owl-prev {
+                rotate: 180deg;
+            }
+            &.disabled {
+                background-color: transparent !important;
+                border-color: $textCOlor !important;
+                svg {
+                    fill: $textCOlor;
+                }
+            }
+        }
+    }
+}
