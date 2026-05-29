@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 
 require_once ABSPATH . 'vendor/autoload.php';
 include "inc/classes/post.php";
+include "inc/ajax/ajax.php";
 
 // Define theme constants
 define("PROJECT_NAME" , "Bozy");
@@ -57,6 +58,7 @@ function bozy_scripts() {
             'theme_url' => BOZY_THEME_URI,
             'ajax_url' => admin_url('admin-ajax.php'),
             'sprite_url' => BOZY_THEME_URI.'/assets/images/sprite.svg?v='.time(),
+            'nonce' =>  wp_create_nonce('my_ajax_nonce'),
         )
     );
 }

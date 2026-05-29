@@ -24,7 +24,7 @@ get_header();
                 $postsClass = new post();
                 $new_posts = $postsClass->getPosts( 'post' , 3 );
                 if( $new_posts && count($new_posts) ) {
-                    foreach( $new_posts as $index => $post_id ){
+                    foreach( $new_posts as $index => $post ){
                         switch ($index) {
                             case 1:
                             case 2:
@@ -36,7 +36,7 @@ get_header();
                         }
                         ?>
                         <div class="col-lg-<?= $col ?> mb-3">
-                            <?php set_query_var("post_id" , $post_id);
+                            <?php set_query_var("post_id" , $post->ID);
                             get_template_part("template-parts/post/post" , "card"); ?>
                         </div>
                     <?php }
@@ -60,9 +60,10 @@ get_header();
                     $tab_items[] = [
                         "title" => $category->name,
                         "link" => $category->slug,
+                        "data-id" => $category->term_id
                     ];
                 }
-                set_query_var("tabs" , $tab_items) ?>
+                set_query_var("tabs" , $tab_items); ?>
                 <?php get_template_part('template-parts/global/tabs');
             } ?>
 
@@ -72,9 +73,9 @@ get_header();
                         <?php
                         $all_articles_posts = $postsClass->getPosts( 'post' , 6 );
                         if( $all_articles_posts && count($all_articles_posts) ) {
-                            foreach( $all_articles_posts as $index => $post_id ){ ?>
+                            foreach( $all_articles_posts as $index => $post  ){ ?>
                                 <div class="item">
-                                    <?php set_query_var("post_id" , $post_id);
+                                    <?php set_query_var("post_id" , $post->ID);
                                     get_template_part("template-parts/post/post" , "card"); ?>
                                 </div>
                             <?php }

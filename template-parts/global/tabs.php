@@ -5,6 +5,8 @@
 
 <div class="tabs">
     <?php foreach ($tabs as $index => $tab){ ?>
-        <button class="tab <?= $index == 0 ? 'active' : ''; ?>" type="button"><?= $tab["title"] ?></button>
+        <button class="tab <?= $index == 0 ? 'active' : ''; ?>" type="button" data-id="<?= $tab['data-id'] ?>">
+            <?= $tab["title"] ?>
+        </button>
     <?php } ?>
 </div>

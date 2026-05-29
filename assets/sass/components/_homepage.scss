@@ -715,3 +715,9 @@
         cursor: pointer;
     }
 }
+
+.homeArticleNews {
+    &.loading{
+        opacity: 0.5;
+    }
+}
