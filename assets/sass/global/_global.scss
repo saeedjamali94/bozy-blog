@@ -149,3 +149,16 @@ img {
         }
     }
 }
+
+.mainSection {
+    padding-top: 8rem;
+    @media(max-width: 991px){
+        padding-top: 6rem;
+    }
+    @media(max-width: 767px){
+        padding-top: 4rem;
+    }
+    @media(max-width: 575px){
+        padding-top: 3rem;
+    }
+}

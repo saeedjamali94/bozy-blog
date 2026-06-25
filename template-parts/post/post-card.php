@@ -9,7 +9,7 @@ $post_date = json_decode(json_encode(get_post_datetime($post_id)))->date;
 
 ?>
 
-<a class="post-card" href="<?= get_the_permalink($post_id) ?>">
+<a class="post-card <?= $card_class ?? '' ?>" href="<?= get_the_permalink($post_id) ?>">
     <figure>
         <?= get_the_post_thumbnail($post_id , 'medium') ?>
     </figure>

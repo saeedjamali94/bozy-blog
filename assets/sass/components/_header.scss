@@ -9,6 +9,17 @@
         width: calc(100% - 30px);
         right: 15px;
     }
+    .logo {
+        width: 137px;
+        @media(max-width: 991px){
+            width: 100px;
+        }
+    }
+    @media(max-width: 575px){
+        .logo {
+            width: 80px;
+        }
+    }
     &__container {
         border-radius: 56px;
         background-color: rgba($white , 0.05);
@@ -42,4 +53,143 @@
             margin-top: 4rem;
         }
     }
+    .search-box {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 16px;
+    }
+    .search-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        .icon {
+            fill: $white;
+        }
+        &:hover {
+            background: rgba($white, 0.1);
+        }
+    }
+}
+
+// Search Dropdown
+.search-dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    background: rgba($darkColor, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 100px 0 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.35s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    &__inner {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    &__input-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    &__input-icon {
+        position: absolute;
+        left: 20px;
+        fill: $textCOlor;
+        pointer-events: none;
+    }
+    &__input {
+        width: 100%;
+        padding: 16px 56px 16px 56px;
+        border-radius: 16px;
+        border: 1px solid rgba($lightBlue, 0.2);
+        background-color: rgba($white, 0.05);
+        color: $white;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.25s;
+        &::placeholder {
+            color: $textCOlor;
+        }
+        &:focus {
+            border-color: $lightBlue;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        .icon {
+            fill: $textCOlor;
+        }
+        &:hover {
+            background: rgba($white, 0.1);
+            .icon {
+                fill: $white;
+            }
+        }
+    }
+    &__loading {
+        display: none;
+        justify-content: center;
+        padding: 40px 0;
+        &.visible {
+            display: flex;
+        }
+    }
+    &__spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid rgba($lightBlue, 0.2);
+        border-top-color: $lightBlue;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+    }
+    &__results {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .post-card-simple-horizontal {
+            margin-bottom: 0;
+        }
+    }
+    &__empty {
+        text-align: center;
+        color: $textCOlor;
+        padding: 30px 0;
+        font-size: 15px;
+    }
+    @media(max-width: 767px){
+        padding: 90px 20px 30px;
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }

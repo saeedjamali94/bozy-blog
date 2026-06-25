@@ -1,5 +1,5 @@
 <?php $tabs = get_query_var("tabs") ?: false; ?>
-<?php if( !$tabs ){
+<?php if( !$tabs || !is_array($tabs) ){
     return;
 } ?>
 
